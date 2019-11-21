@@ -3,7 +3,7 @@
         <img class="shop-item-image" src="~@/assets/images/r2.png"  alt="">
         <div class="shop-item-details">
             <span class="shop-item-price">$6.99</span>
-            <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+            <span class="shop-item-title">Menu 1</span>
         </div>
     </div>
 </template>
@@ -13,7 +13,7 @@
         name: "MenuItem",
         methods: {
             checkdetail: function() {
-                this.$router.push({name: 'detail', params: {title: 'Menus'}});
+                this.$router.push({name: 'detail', params: {title: 'Menus 1'}});
             }
         }
     }
@@ -22,15 +22,6 @@
 <style scoped>
     .shop-item {
         margin: 30px;
-    }
-    .shop-item-title {
-        display: block;
-        width: 100%;
-        text-align: center;
-        font-weight: bold;
-        font-size: 1.5em;
-        color: #333;
-        margin-bottom: 15px;
     }
 
     .shop-item-image {
@@ -43,8 +34,23 @@
         padding: 5px;
     }
 
-    .shop-item-price {
-        flex-grow: 1;
+    .shop-item-title {
+        display: block;
+        width: 100%;
+        text-align: right;
+        font-weight: bold;
+        font-size: 1em;
         color: #333;
+        margin-bottom: 15px;
+    }
+
+    .shop-item-price {
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-weight: bold;
+        font-size: 1em;
+        color: #333;
+        margin-bottom: 15px;
     }
 </style>

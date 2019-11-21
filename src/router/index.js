@@ -7,6 +7,10 @@ Vue.use(Router);
 const router = new Router({
     routes: [
         {
+            path: '',
+            redirect: '/main/list/Menu'
+        },
+        {
             path: '/payment',
             name: 'payment',
             component: () => import('@/views/Payment')
@@ -19,13 +23,13 @@ const router = new Router({
                 {
                     path: 'list/:title',
                     name: 'list',
-                    component: () => import('@/components/MenuList'),
+                    component: () => import('@/views/order/MenuList'),
                     props: true
                 },
                 {
                     path: 'detail/:title',
                     name: 'detail',
-                    component: () => import('@/components/ItemDetail'),
+                    component: () => import('@/views/order/ItemDetail'),
                     props: true
                 }
             ]
