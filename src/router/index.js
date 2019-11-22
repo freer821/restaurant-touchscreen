@@ -8,7 +8,7 @@ const router = new Router({
     routes: [
         {
             path: '',
-            redirect: '/main/list/Menu'
+            redirect: '/order/list/Menu'
         },
         {
             path: '/payment',
@@ -16,20 +16,20 @@ const router = new Router({
             component: () => import('@/views/Payment')
         },
         {
-            path: '/main',
-            name: 'main',
+            path: '/order',
+            name: 'order',
             component: () => import('@/views/Layout'),
             children: [
                 {
                     path: 'list/:title',
                     name: 'list',
-                    component: () => import('@/views/order/MenuList'),
+                    component: () => import('@/views/menu/index'),
                     props: true
                 },
                 {
-                    path: 'detail/:title',
-                    name: 'detail',
-                    component: () => import('@/views/order/ItemDetail'),
+                    path: 'item',
+                    name: 'item',
+                    component: () => import('@/views/item/index'),
                     props: true
                 }
             ]

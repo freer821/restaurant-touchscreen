@@ -1,24 +1,26 @@
 <template>
     <section class="container content-section">
         <h2 class="section-header">{{ title }}</h2>
-        <Attribute />
-        <Attribute />
-        <Attribute />
-        <Attribute />
-        <Attribute />
-        <Attribute />
-
+        <div class="shop-items">
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+        </div>
     </section>
 </template>
 
 <script>
-    import Attribute from "./Attribute";
+    import MenuItem from "./components/MenuItem";
     export default {
-        name: "ItemDetail",
+        name: "index",
         props: {
-            title: String
+            title: String,
+            redirect: String,
         },
-        components: {Attribute},
+        components: { MenuItem },
     }
 </script>
 
@@ -41,7 +43,12 @@
         text-align: center;
         font-size: 3.5em;
         background-color: black;
-        margin-bottom: 1em;
+    }
+
+    .shop-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
 </style>

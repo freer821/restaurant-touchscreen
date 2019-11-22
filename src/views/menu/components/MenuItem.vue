@@ -13,7 +13,7 @@
         name: "MenuItem",
         methods: {
             checkdetail: function() {
-                this.$router.push({name: 'detail', params: {title: 'Menus 1'}});
+                this.$router.push({name: 'item', params: {title: 'Menus 1'}});
             }
         }
     }

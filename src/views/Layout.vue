@@ -23,7 +23,7 @@
 <script>
     import Header from "../components/Header";
     import TopLogo from "../components/TopLogo";
-    import NavBar from "./order/NavBar";
+    import NavBar from "../components/NavBar";
     import Cart from "../components/Cart";
     export default {
         name: 'layout',

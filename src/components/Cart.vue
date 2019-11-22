@@ -34,6 +34,7 @@
         <b-modal
                 v-model="show"
                 title="Modal Variants"
+                size="huge"
                 :header-bg-variant="headerBgVariant"
                 :header-text-variant="headerTextVariant"
                 :body-bg-variant="bodyBgVariant"
@@ -148,6 +149,9 @@
         overflow-y: auto;
         max-height: 350px;
     }
-
+    .modal .modal-huge {
+        max-width: 2000px;
+        width: 2000px;
+    }
 </style>
 
