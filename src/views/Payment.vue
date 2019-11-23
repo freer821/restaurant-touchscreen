@@ -18,8 +18,6 @@
         name: 'Payment',
         components: {Header, TopLogo},
         created() {
-            console.log("eatway: "+this.$store.getters.eatway);
-            console.log("payemnt: "+this.$store.getters.payment);
         },
     }
 </script>

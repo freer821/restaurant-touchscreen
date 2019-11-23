@@ -1,9 +1,9 @@
 <template>
     <div class="shop-item" v-on:click="checkdetail">
-        <img class="shop-item-image" src="~@/assets/images/r2.png"  alt="">
+        <img class="shop-item-image" :src="getImgUrl(item.img)" alt="">
         <div class="shop-item-details">
-            <span class="shop-item-price">$6.99</span>
-            <span class="shop-item-title">Menu 1</span>
+            <span class="shop-item-price">{{item.price}}</span>
+            <span class="shop-item-title">{{item.name}}</span>
         </div>
     </div>
 </template>
@@ -11,9 +11,15 @@
 <script>
     export default {
         name: "MenuItem",
+        props: {
+            item: Object
+        },
         methods: {
-            checkdetail: function() {
-                this.$router.push({name: 'item', params: {title: 'Menus 1'}});
+            getImgUrl(img) {
+                return require("@/assets/images/"+img);
+            },
+            checkdetail: function () {
+                this.$store.dispatch('setViewtag', 'item');
             }
         }
     }

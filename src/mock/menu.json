@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "menus",
+    "label": "Menus",
+    "img": "menus.png",
+    "list": [
+      {
+        "name": "menu1",
+        "img": "menu1.png",
+        "price": "1.80"
+      },
+      {
+        "name": "menu2",
+        "img": "menu2.png",
+        "price": "1.80"
+      },
+      {
+        "name": "menu3",
+        "img": "menu3.png",
+        "price": "1.80"
+      },
+      {
+        "name": "menu4",
+        "img": "menu4.png",
+        "price": "1.80"
+      },
+      {
+        "name": "menu5",
+        "img": "menu5.png",
+        "price": "1.80"
+      },
+      {
+        "name": "menu6",
+        "img": "menu6.png",
+        "price": "1.80"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "bagels",
+    "label": "Bagels",
+    "img": "bagels.png",
+    "list": [
+      {
+        "name": "bagel1",
+        "img": "bagel1.png",
+        "price": "1.80"
+      },
+      {
+        "name": "bagel2",
+        "img": "bagel2.png",
+        "price": "1.80"
+      },
+      {
+        "name": "bagel3",
+        "img": "bagel3.png",
+        "price": "1.80"
+      },
+      {
+        "name": "bagel4",
+        "img": "bagel4.png",
+        "price": "1.80"
+      },
+      {
+        "name": "bagel5",
+        "img": "bagel5.png",
+        "price": "1.80"
+      },
+      {
+        "name": "bagel6",
+        "img": "bagel6.png",
+        "price": "1.80"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "dessert",
+    "label": "Dessert",
+    "img": "dessert.png",
+    "list" : []
+  },
+  {
+    "id": 4,
+    "name": "soup",
+    "label": "Soup",
+    "img": "soup.png",
+    "list" : []
+  }
+]

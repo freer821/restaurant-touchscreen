@@ -1,24 +1,19 @@
 <template>
     <section class="container content-section">
-        <h2 class="section-header">{{ title }}</h2>
-        <Attribute />
-        <Attribute />
-        <Attribute />
-        <Attribute />
-        <Attribute />
-        <Attribute />
 
+        <h2 class="section-header">{{ menu.label }}</h2>
+        <div class="shop-items">
+            <MenuItem v-for="item in menu.list" :key="item.name" :item="item"/>
+        </div>
     </section>
 </template>
 
 <script>
-    import Attribute from "./components/Attribute";
+    import MenuItem from "./MenuItem";
     export default {
         name: "index",
-        props: {
-            title: String
-        },
-        components: {Attribute},
+        props: ['menu'],
+        components: { MenuItem },
     }
 </script>
 
@@ -41,7 +36,12 @@
         text-align: center;
         font-size: 3.5em;
         background-color: black;
-        margin-bottom: 1em;
+    }
+
+    .shop-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
 </style>

@@ -22,7 +22,6 @@
         },
         methods: {
             redirect(path) {
-                this.$store.dispatch('setEatWay', path);
                 this.$router.push({ path: path || '/' });
             }
         }

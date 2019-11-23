@@ -3,7 +3,7 @@
         <b-container>
             <b-row>
                 <b-col cols="3">
-                    <img src="~@/assets/images/r2.png" alt="">
+                    <img src="~@/assets/images/menu1.png" alt="">
                 </b-col>
                 <b-col cols="9">
                     <div class="attribute-container">

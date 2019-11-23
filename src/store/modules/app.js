@@ -1,25 +1,17 @@
 const app = {
     state: {
-        redirect: '',
-        eatway: 'here',
-        payment: 'card',
+        viewtag: 'menu',
         cart: {}
     },
     mutations: {
-        SET_EATWAY: (state, eatway) => {
-            state.eatway = eatway;
-        },
-        SET_PAYMENT: (state, payment) => {
-            state.payment = payment;
+        SET_VIEWTAG: (state, viewtag) => {
+            state.viewtag = viewtag;
         }
     },
     actions: {
-        setEatWay({ commit }, eatway) {
-            commit('SET_EATWAY', eatway)
-        },
-        setPayment({ commit }, payment) {
-            commit('SET_PAYMENT', payment)
-        },
+        setViewtag({ commit }, viewtag) {
+            commit('SET_VIEWTAG', viewtag)
+        }
     }
 }
 
