@@ -1,7 +1,6 @@
 const app = {
     state: {
-        viewtag: 'menu',
-        cart: {}
+        viewtag: 'category'
     },
     mutations: {
         SET_VIEWTAG: (state, viewtag) => {

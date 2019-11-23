@@ -1,25 +1,32 @@
 <template>
-    <div class="shop-item" v-on:click="checkdetail">
-        <img class="shop-item-image" :src="getImgUrl(item.img)" alt="">
+    <div class="shop-item" v-on:click="showDetail">
+        <img class="shop-item-image" :src="getImgUrl(menu.img)" alt="">
         <div class="shop-item-details">
-            <span class="shop-item-price">{{item.price}}</span>
-            <span class="shop-item-title">{{item.name}}</span>
+            <span class="shop-item-price">{{menu.price}}</span>
+            <span class="shop-item-title">{{menu.name}}</span>
         </div>
     </div>
 </template>
 
 <script>
+    import {getMenu} from "@/api/menu";
+
     export default {
         name: "MenuItem",
         props: {
-            item: Object
+            menu: Object
         },
         methods: {
             getImgUrl(img) {
                 return require("@/assets/images/"+img);
             },
-            checkdetail: function () {
-                this.$store.dispatch('setViewtag', 'item');
+            showDetail: function () {
+                getMenu(this.menu.id).then(response => {
+                    this.$store.dispatch('setCurrentMenu', response.data);
+                    this.$store.dispatch('setViewtag', 'menu');
+                }).catch(error => {
+
+                });
             }
         }
     }

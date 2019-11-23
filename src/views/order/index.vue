@@ -15,14 +15,14 @@
                         </div>
                     </b-col>
                     <b-col cols="9">
-                        <Menu title="Menu" v-if="viewtag==='menu'" :menu="menu" />
-                        <Item title="Item" v-if="viewtag==='item'"/>
+                        <Category v-if="viewtag==='category'" :category="category" />
+                        <Menu v-if="viewtag==='menu'" />
                     </b-col>
                 </b-row>
             </b-container>
-            <div class="cart-container">
-                <Cart />
-            </div>
+        </div>
+        <div class="cart-container">
+            <Cart />
         </div>
     </div>
 </template>
@@ -32,17 +32,17 @@
     import TopLogo from "../../components/TopLogo";
     import Cart from "./components/cart";
     import Menu from "./components/menu";
-    import Item from "./components/item";
-    import {getMenu} from "@/api/menu";
+    import Category from "./components/category";
+    import { getCategories } from "@/api/category"
 
     export default {
         name: 'layout',
-        components: {Header, TopLogo, Cart, Menu, Item},
+        components: {Header, TopLogo, Cart, Menu, Category},
         data() {
             return {
                 selectedTab:0,
-                tabs : {},
-                menu: Object
+                tabs : [],
+                category: Object
 
             }
         },
@@ -52,23 +52,21 @@
             }
         },
         created() {
-                getMenu().then( response => {
-                    this.tabs = response.data;
-                    if (this.tabs.length > 0) {
-                        this.changeTab(this.tabs[0])
-                    }
-                }).catch(error => {
-                    console.log(error);
-                });
+            getCategories().then( response => {
+                this.tabs = response.data;
+                if (this.tabs.length > 0) {
+                    this.changeTab(this.tabs[0])
+                }
+            })
         },
         methods: {
             getImgUrl(tab) {
                 return require("@/assets/images/"+tab.img);
             },
             changeTab(tab) {
-                this.$store.dispatch('setViewtag', 'menu');
+                this.$store.dispatch('setViewtag', 'category');
                 this.selectedTab = tab.id;
-                this.menu = tab;
+                this.category = tab;
             }
         }
     }
@@ -82,6 +80,7 @@
     .main-container {
         margin: auto;
         width: 90vw;
+        height: 780px;
         background-color: transparent !important;
     }
     .cart-container {

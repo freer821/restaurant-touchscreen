@@ -6,31 +6,37 @@
     "img": "menus.png",
     "list": [
       {
+        "id": 11,
         "name": "menu1",
         "img": "menu1.png",
         "price": "1.80"
       },
       {
+        "id": 12,
         "name": "menu2",
         "img": "menu2.png",
         "price": "1.80"
       },
       {
+        "id": 13,
         "name": "menu3",
         "img": "menu3.png",
         "price": "1.80"
       },
       {
+        "id": 14,
         "name": "menu4",
         "img": "menu4.png",
         "price": "1.80"
       },
       {
+        "id": 15,
         "name": "menu5",
         "img": "menu5.png",
         "price": "1.80"
       },
       {
+        "id": 16,
         "name": "menu6",
         "img": "menu6.png",
         "price": "1.80"
@@ -44,31 +50,37 @@
     "img": "bagels.png",
     "list": [
       {
+        "id": 21,
         "name": "bagel1",
         "img": "bagel1.png",
         "price": "1.80"
       },
       {
+        "id": 22,
         "name": "bagel2",
         "img": "bagel2.png",
         "price": "1.80"
       },
       {
+        "id": 23,
         "name": "bagel3",
         "img": "bagel3.png",
         "price": "1.80"
       },
       {
+        "id": 24,
         "name": "bagel4",
         "img": "bagel4.png",
         "price": "1.80"
       },
       {
+        "id": 24,
         "name": "bagel5",
         "img": "bagel5.png",
         "price": "1.80"
       },
       {
+        "id": 25,
         "name": "bagel6",
         "img": "bagel6.png",
         "price": "1.80"

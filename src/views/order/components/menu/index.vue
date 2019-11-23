@@ -1,19 +1,26 @@
 <template>
     <section class="container content-section">
+        <h2 class="section-header">{{ menu.title }}</h2>
+        <Dish />
+        <Dish />
 
-        <h2 class="section-header">{{ menu.label }}</h2>
-        <div class="shop-items">
-            <MenuItem v-for="item in menu.list" :key="item.name" :item="item"/>
-        </div>
     </section>
 </template>
 
 <script>
-    import MenuItem from "./MenuItem";
+    import Dish from "./Dish";
     export default {
         name: "index",
-        props: ['menu'],
-        components: { MenuItem },
+        components: {Dish},
+        data() {
+            return {
+                menu: {}
+            }
+        },
+        created() {
+            this.menu = this.$store.getters.current_menu
+        }
+
     }
 </script>
 
@@ -36,12 +43,7 @@
         text-align: center;
         font-size: 3.5em;
         background-color: black;
-    }
-
-    .shop-items {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
+        margin-bottom: 1em;
     }
 
 </style>
