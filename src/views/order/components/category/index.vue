@@ -1,11 +1,11 @@
 <template>
-    <section class="container content-section">
+    <div class="container content-section">
 
         <h2 class="section-header">{{ category.label }}</h2>
         <div class="shop-items">
             <MenuItem v-for="menu in category.list" :key="menu.name" :menu="menu"/>
         </div>
-    </section>
+    </div>
 </template>
 
 <script>

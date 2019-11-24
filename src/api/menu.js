@@ -1,9 +1,8 @@
 import request from './request'
 
-export function getMenu(id) {
+export function getMenu() {
     return request({
         url: '/menu',
-        method: 'get',
-        params: { id }
+        method: 'get'
     })
 }

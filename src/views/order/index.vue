@@ -8,21 +8,22 @@
                     <b-col>
                         <div class="nav">
                             <b-nav vertical pills>
-                                <b-nav-item v-for="tab in tabs" :key="tab.id" :active="selectedTab===tab.id" v-on:click="changeTab(tab)">
-                                    <img :src="getImgUrl(tab)" class="img-fluid" />
+                                <b-nav-item v-for="tab in tabs" :key="tab.id" :active="selectedTab===tab.id"
+                                            v-on:click="changeTab(tab)">
+                                    <img :src="getImgUrl(tab)" class="img-fluid"/>
                                 </b-nav-item>
                             </b-nav>
                         </div>
                     </b-col>
                     <b-col cols="9">
-                        <Category v-if="viewtag==='category'" :category="category" />
-                        <Menu v-if="viewtag==='menu'" />
+                        <Category v-if="viewtag==='category'" :category="category"/>
+                        <Menu v-if="viewtag==='menu'"/>
                     </b-col>
                 </b-row>
             </b-container>
         </div>
         <div class="cart-container">
-            <Cart />
+            <Cart/>
         </div>
     </div>
 </template>
@@ -33,26 +34,26 @@
     import Cart from "./components/cart";
     import Menu from "./components/menu";
     import Category from "./components/category";
-    import { getCategories } from "@/api/category"
+    import {getCategories} from "@/api/category"
 
     export default {
         name: 'layout',
         components: {Header, TopLogo, Cart, Menu, Category},
         data() {
             return {
-                selectedTab:0,
-                tabs : [],
+                selectedTab: 0,
+                tabs: [],
                 category: Object
 
             }
         },
         computed: {
-            viewtag: function() {
+            viewtag: function () {
                 return this.$store.getters.viewtag;
             }
         },
         created() {
-            getCategories().then( response => {
+            getCategories().then(response => {
                 this.tabs = response.data;
                 if (this.tabs.length > 0) {
                     this.changeTab(this.tabs[0])
@@ -61,7 +62,7 @@
         },
         methods: {
             getImgUrl(tab) {
-                return require("@/assets/images/"+tab.img);
+                return require("@/assets/images/" + tab.img);
             },
             changeTab(tab) {
                 this.$store.dispatch('setViewtag', 'category');
@@ -80,11 +81,13 @@
     .main-container {
         margin: auto;
         width: 90vw;
-        height: 780px;
         background-color: transparent !important;
+        height: 780px;
+        overflow-y: auto;
     }
+
     .cart-container {
-        margin-top:20px;
+        margin-top: 20px;
         width: 100%;
     }
 

@@ -1,9 +1,9 @@
 <template>
     <section class="container content-section">
-        <h2 class="section-header">{{ menu.title }}</h2>
-        <Dish />
-        <Dish />
-
+        <h2 class="section-header">{{ menu.label }}</h2>
+        <div class="dish-container">
+            <Dish  v-for="d in menu.content" :key="d.name" :dish="d"/>
+        </div>
     </section>
 </template>
 

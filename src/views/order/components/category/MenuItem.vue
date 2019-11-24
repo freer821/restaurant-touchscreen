@@ -22,10 +22,11 @@
             },
             showDetail: function () {
                 getMenu(this.menu.id).then(response => {
+                    console.log(response.data)
                     this.$store.dispatch('setCurrentMenu', response.data);
                     this.$store.dispatch('setViewtag', 'menu');
                 }).catch(error => {
-
+                    console.log(error)
                 });
             }
         }

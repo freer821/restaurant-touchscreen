@@ -1,104 +1,33 @@
-[
-  {
-    "id": 1,
-    "name": "menus",
-    "label": "Menus",
-    "img": "menus.png",
-    "list": [
-      {
-        "id": 11,
-        "name": "menu1",
-        "img": "menu1.png",
-        "price": "1.80"
-      },
-      {
-        "id": 12,
-        "name": "menu2",
-        "img": "menu2.png",
-        "price": "1.80"
-      },
-      {
-        "id": 13,
-        "name": "menu3",
-        "img": "menu3.png",
-        "price": "1.80"
-      },
-      {
-        "id": 14,
-        "name": "menu4",
-        "img": "menu4.png",
-        "price": "1.80"
-      },
-      {
-        "id": 15,
-        "name": "menu5",
-        "img": "menu5.png",
-        "price": "1.80"
-      },
-      {
-        "id": 16,
-        "name": "menu6",
-        "img": "menu6.png",
-        "price": "1.80"
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "name": "bagels",
-    "label": "Bagels",
-    "img": "bagels.png",
-    "list": [
-      {
-        "id": 21,
-        "name": "bagel1",
-        "img": "bagel1.png",
-        "price": "1.80"
-      },
-      {
-        "id": 22,
-        "name": "bagel2",
-        "img": "bagel2.png",
-        "price": "1.80"
-      },
-      {
-        "id": 23,
-        "name": "bagel3",
-        "img": "bagel3.png",
-        "price": "1.80"
-      },
-      {
-        "id": 24,
-        "name": "bagel4",
-        "img": "bagel4.png",
-        "price": "1.80"
-      },
-      {
-        "id": 24,
-        "name": "bagel5",
-        "img": "bagel5.png",
-        "price": "1.80"
-      },
-      {
-        "id": 25,
-        "name": "bagel6",
-        "img": "bagel6.png",
-        "price": "1.80"
-      }
-    ]
-  },
-  {
-    "id": 3,
-    "name": "dessert",
-    "label": "Dessert",
-    "img": "dessert.png",
-    "list" : []
-  },
-  {
-    "id": 4,
-    "name": "soup",
-    "label": "Soup",
-    "img": "soup.png",
-    "list" : []
+{
+  "id": 11,
+  "name": "menus",
+  "label": "Menus",
+  "img": "menus.png",
+  "content": {
+    "bagel": {
+      "img": "menu1.png",
+      "name": "Bagel",
+      "choices":["bagel 1","bagel 2","bagel 3","bagel 4","bagel 5","bagel 6"]
+    },
+    "sauce": {
+      "img": "sauce.png",
+      "name": "Sauce",
+      "choices":["sauce 1","sauce 2","sauce 3","sauce 4","sauce 5","sauce 6"]
+    },
+    "meat": {
+      "img": "41.png",
+      "name": "Meat",
+      "choices":["meat 1","meat 2","meat 3","meat 4","meat 5","meat 6"]
+    },
+    "drink": {
+      "img": "42.png",
+      "name": "Drink",
+      "choices":["drink 1","drink 2","drink 3","drink 4","drink 5","drink 6"]
+    },
+    "salat": {
+      "img": "s3.png",
+      "name": "Salat",
+      "choices":["salat 1","salat 2","salat 3","salat 4","salat 5","salat 6"]
+    }
   }
-]
+}
