@@ -1,33 +1,40 @@
 {
   "id": 11,
   "name": "menus",
-  "label": "Menus",
+  "label": "Test Menu",
   "img": "menus.png",
+  "price": 1.8,
+  "basic_price": 1.8,
   "content": {
     "bagel": {
       "img": "menu1.png",
       "name": "Bagel",
-      "choices":["bagel 1","bagel 2","bagel 3","bagel 4","bagel 5","bagel 6"]
+      "choices":["bagel 1","bagel 2","bagel 3","bagel 4","bagel 5","bagel 6"],
+      "selected_choice": 1
     },
     "sauce": {
       "img": "sauce.png",
       "name": "Sauce",
-      "choices":["sauce 1","sauce 2","sauce 3","sauce 4","sauce 5","sauce 6"]
+      "choices":["sauce 1","sauce 2","sauce 3","sauce 4","sauce 5","sauce 6"],
+      "selected_choice": 2
     },
-    "meat": {
+    "bread": {
       "img": "41.png",
       "name": "Meat",
-      "choices":["meat 1","meat 2","meat 3","meat 4","meat 5","meat 6"]
+      "choices":["bread 1","bread 2","bread 3","bread 4","bread 5","bread 6"],
+      "selected_choice": 3
     },
     "drink": {
       "img": "42.png",
       "name": "Drink",
-      "choices":["drink 1","drink 2","drink 3","drink 4","drink 5","drink 6"]
+      "choices":["drink 1","drink 2","drink 3","drink 4","drink 5","drink 6"],
+      "selected_choice": 4
     },
     "salat": {
       "img": "s3.png",
       "name": "Salat",
-      "choices":["salat 1","salat 2","salat 3","salat 4","salat 5","salat 6"]
+      "choices":["salat 1","salat 2","salat 3","salat 4","salat 5","salat 6"],
+      "selected_choice": 5
     }
   }
 }

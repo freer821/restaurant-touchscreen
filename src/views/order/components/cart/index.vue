@@ -6,11 +6,7 @@
                 Shipping cart
             </div>
             <div class="card-body">
-                <Product/>
-                <Product/>
-                <Product/>
-                <Product/>
-
+                <Product v-for="product in products" :key="product.id" :product="product"/>
             </div>
             <div class="card-footer">
                 <div class="coupon col-md-5 col-sm-5 no-padding-left float-left">
@@ -25,7 +21,7 @@
                 </div>
                 <div class="float-right" style="margin: 10px">
                     <div class="float-right" style="margin: 5px">
-                        Total price: <b>50.00€</b>
+                        Total price: <b>{{total_price }}€</b>
                     </div>
                     <b-button @click="show=true" variant="primary">Checkout</b-button>
                 </div>
@@ -33,7 +29,7 @@
         </div>
         <b-modal
                 v-model="show"
-                title="Modal Variants"
+                title="Checkout"
                 :header-bg-variant="headerBgVariant"
                 :header-text-variant="headerTextVariant"
                 :body-bg-variant="bodyBgVariant"
@@ -42,71 +38,47 @@
                 :footer-text-variant="footerTextVariant"
         >
             <b-container fluid>
-                <b-row class="mb-1 text-center">
-                    <b-col cols="3"></b-col>
-                    <b-col>Background</b-col>
-                    <b-col>Text</b-col>
+                <b-row class="mb-1">
+                    <b-col cols="3">Total Price:</b-col>
+                    <b-col cols="6" align-content="center"><span class="">{{total_price}} €</span></b-col>
                 </b-row>
 
                 <b-row class="mb-1">
-                    <b-col cols="3">Header</b-col>
-                    <b-col>
-                        <b-form-select
-                                v-model="headerBgVariant"
-                                :options="variants"
-                        ></b-form-select>
-                    </b-col>
-                    <b-col>
-                        <b-form-select
-                                v-model="headerTextVariant"
-                                :options="variants"
-                        ></b-form-select>
+                    <b-col cols="3">Eating</b-col>
+                    <b-col cols="6">
+                        <b-form-group >
+                            <b-form-radio-group v-model="eatingway" name="radio-sub-component-1">
+                                <b-form-radio value="eat_here" >Eat Here</b-form-radio>
+                                <b-form-radio value="take_away">Take Away</b-form-radio>
+                            </b-form-radio-group>
+                        </b-form-group>
                     </b-col>
                 </b-row>
 
                 <b-row class="mb-1">
-                    <b-col cols="3">Body</b-col>
-                    <b-col>
-                        <b-form-select
-                                v-model="bodyBgVariant"
-                                :options="variants"
-                        ></b-form-select>
-                    </b-col>
-                    <b-col>
-                        <b-form-select
-                                v-model="bodyTextVariant"
-                                :options="variants"
-                        ></b-form-select>
+                    <b-col cols="3">Payment:</b-col>
+                    <b-col cols="6">
+                        <b-form-group >
+                            <b-form-radio-group v-model="payment" name="radio-sub-component-2">
+                                <b-form-radio value="card" >Card</b-form-radio>
+                                <b-form-radio value="cash">Cash</b-form-radio>
+                            </b-form-radio-group>
+                        </b-form-group>
                     </b-col>
                 </b-row>
 
-                <b-row>
-                    <b-col cols="3">Footer</b-col>
-                    <b-col>
-                        <b-form-select
-                                v-model="footerBgVariant"
-                                :options="variants"
-                        ></b-form-select>
-                    </b-col>
-                    <b-col>
-                        <b-form-select
-                                v-model="footerTextVariant"
-                                :options="variants"
-                        ></b-form-select>
-                    </b-col>
-                </b-row>
             </b-container>
 
             <template v-slot:modal-footer>
                 <div class="w-100">
-                    <p class="float-left">Modal Footer Content</p>
+                    <p class="float-left">Guten Appetit</p>
                     <b-button
                             variant="primary"
                             size="sm"
                             class="float-right"
-                            @click="show=false"
+                            @click="submit"
                     >
-                        Close
+                        Submit
                     </b-button>
                 </div>
             </template>
@@ -115,7 +87,7 @@
 </template>
 
 <script>
-    import Product from "../../../../components/Product";
+    import Product from "./Product";
 
     export default {
         name: "Cart",
@@ -129,7 +101,23 @@
                 bodyBgVariant: 'light',
                 bodyTextVariant: 'dark',
                 footerBgVariant: 'warning',
-                footerTextVariant: 'dark'
+                footerTextVariant: 'dark',
+                eatingway: 'eat_here',
+                payment:'card'
+            }
+        },
+        computed: {
+            products: function () {
+                return this.$store.getters.current_cart.products;
+            },
+            total_price: function () {
+                return this.$store.getters.current_cart.total_price;
+            }
+        },
+        methods: {
+            submit: function () {
+                this.$store.dispatch('cleanCurrentCart');
+                this.show=false
             }
         }
     }

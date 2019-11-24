@@ -1,15 +1,15 @@
 <template>
-    <div>
+    <div class="dish">
         <b-container>
             <b-row>
                 <b-col cols="3">
-                    <img :src="imgurl" alt="">
+                    <img :src="imgurl" alt="" height="100" width="100">
                 </b-col>
                 <b-col cols="9">
                     <div class="attribute-container">
                         <ul class="ks-cboxtags">
-                            <li v-for="choice in dish.choices" :key="choice">
-                                <input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">{{choice}}}</label>
+                            <li v-for="(choice, index) in dish.choices" :key="index">
+                                <input type="radio" :id="choice" :name="dish.name" :value="choice" :checked="index===dish.selected_choice" v-on:click="changeChoice(index)"><label :for="choice">{{choice}}</label>
                             </li>
                         </ul>
                     </div>
@@ -27,20 +27,29 @@
             imgurl: function () {
                 return require("@/assets/images/"+this.dish.img);
             }
+        },
+        methods: {
+            changeChoice: function (index) {
+                this.dish.selected_choice = index;
+                this.$store.dispatch('updateCurrentMenuPrice');
+            }
         }
     }
 </script>
 
 <style scoped>
+    .dish {
+        margin-bottom: 10px;
+    }
     .attribute-container {
         max-width: 640px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 13px;
+        font-size: 10px;
     }
 
     ul.ks-cboxtags {
         list-style: none;
-        padding: 20px;
+        padding: 10px;
     }
     ul.ks-cboxtags li{
         display: inline;
@@ -81,27 +90,27 @@
         transition: transform .3s ease-in-out;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    ul.ks-cboxtags li input[type="radio"]:checked + label::before {
         content: "\f00c";
         transform: rotate(-360deg);
         transition: transform .3s ease-in-out;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    ul.ks-cboxtags li input[type="radio"]:checked + label {
         border: 2px solid #1bdbf8;
         background-color: #12bbd4;
         color: #fff;
         transition: all .2s;
     }
 
-    ul.ks-cboxtags li input[type="checkbox"] {
+    ul.ks-cboxtags li input[type="radio"] {
         display: absolute;
     }
-    ul.ks-cboxtags li input[type="checkbox"] {
+    ul.ks-cboxtags li input[type="radio"] {
         position: absolute;
         opacity: 0;
     }
-    ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+    ul.ks-cboxtags li input[type="radio"]:focus + label {
         border: 2px solid #e9a1ff;
     }
 

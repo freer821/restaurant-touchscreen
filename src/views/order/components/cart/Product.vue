@@ -2,28 +2,27 @@
     <div>
         <div class="row">
             <div class="col-12 col-sm-12 col-md-2 text-center">
-                <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="90" height="60">
+                <img class="img-responsive" :src="getImgUrl(product.img)" alt="prewiew" width="90" height="60">
             </div>
             <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
-                <h4 class="product-name"><strong>Product Name</strong></h4>
+                <h4 class="product-name"><strong>{{product.name}}</strong></h4>
                 <h4>
-                    <small>Product description</small>
+                    <small>{{product.content}}</small>
                 </h4>
             </div>
             <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
                 <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
-                    <h6><strong>25.00 <span class="text-muted">x</span></strong></h6>
+                    <h6><strong>{{product.price}} € <span class="text-muted">x</span></strong></h6>
                 </div>
                 <div class="col-4 col-sm-4 col-md-4">
                     <div class="quantity">
-                        <input type="button" value="+" class="plus">
-                        <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                               size="4">
-                        <input type="button" value="-" class="minus">
+                        <input type="button" value="+" class="plus" v-on:click="plusProductNum">
+                        <label class="qty"> {{num}}</label>
+                        <input type="button" value="-" class="minus" v-on:click="minusProductNum">
                     </div>
                 </div>
                 <div class="col-2 col-sm-2 col-md-2 text-right">
-                    <button type="button" class="btn btn-outline-danger btn-xs">
+                    <button type="button" class="btn btn-outline-danger btn-xs" v-on:click="removeProduct">
                         <i class="fa fa-trash" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -35,7 +34,33 @@
 
 <script>
     export default {
-        name: "Product"
+        name: "Product",
+        props: ['product'],
+        data: function() {
+            return {
+                num: 1
+            }
+        },
+        methods: {
+            getImgUrl(img) {
+                return require("@/assets/images/"+img);
+            },
+            plusProductNum: function () {
+                this.product.num += 1;
+                this.$store.dispatch('updateMenuNumInCart', this.product);
+                this.num = this.product.num
+            },
+            minusProductNum: function () {
+                if (this.product.num > 1) {
+                    this.product.num -= 1;
+                    this.$store.dispatch('updateMenuNumInCart', this.product);
+                    this.num = this.product.num
+                }
+            },
+            removeProduct: function () {
+                this.$store.dispatch('delMenuFromCart', this.product.id);
+            }
+        }
     }
 </script>
 
@@ -63,7 +88,7 @@
         background-color: #F6F6F6
     }
 
-    .quantity input.qty {
+    .qty {
         position: relative;
         border: 0;
         width: 100%;

@@ -1,8 +1,12 @@
 <template>
     <section class="container content-section">
         <h2 class="section-header">{{ menu.label }}</h2>
-        <div class="dish-container">
-            <Dish  v-for="d in menu.content" :key="d.name" :dish="d"/>
+        <Dish  v-for="d in menu.content" :key="d.name" :dish="d"/>
+        <div class="float-right">
+            <div class="float-left" style="margin: 5px">
+                    <strong>Price: <span class="totals-value">{{menu.price}} €</span></strong>
+            </div>
+            <b-button variant="primary" v-on:click="addtocart">Add to Cart</b-button>
         </div>
     </section>
 </template>
@@ -12,13 +16,17 @@
     export default {
         name: "index",
         components: {Dish},
-        data() {
-            return {
-                menu: {}
+        computed: {
+            menu: function () {
+                return this.$store.getters.current_menu
             }
         },
-        created() {
-            this.menu = this.$store.getters.current_menu
+        methods:{
+            addtocart: function () {
+                this.$store.dispatch('addMenuIntoCart');
+                this.$store.dispatch('setViewtag', 'category');
+                this.$store.dispatch('cleanCurrentMenu');
+            }
         }
 
     }
@@ -45,5 +53,9 @@
         background-color: black;
         margin-bottom: 1em;
     }
+    .totals-value {
+        width: 21%;
+    }
+
 
 </style>

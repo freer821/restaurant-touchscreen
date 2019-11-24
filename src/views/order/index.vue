@@ -68,6 +68,7 @@
                 this.$store.dispatch('setViewtag', 'category');
                 this.selectedTab = tab.id;
                 this.category = tab;
+                this.$store.dispatch('cleanCurrentMenu');
             }
         }
     }
