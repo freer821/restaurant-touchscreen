@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/fast-food/precache-manifest.0f34c940da25a9cf3d2f62a3748fe112.js"
+  "/restaurant-touchscreen/precache-manifest.5a87038d6c8784a1a03627a8b6d24d2d.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "fastfood"});
