@@ -1,5 +1,5 @@
 module.exports = {
-    publicPath: '/fast-food/',
+    publicPath: process.env.NODE_ENV === 'production'? '/fast-food/':'/',
     pages: {
         index: {
             // entry for the page
