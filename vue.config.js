@@ -21,3 +21,4 @@ module.exports = {
         // Output filename is inferred to be `subpage.html`.
     }
 };
+
